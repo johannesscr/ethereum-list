@@ -160,3 +160,19 @@ USD. With some arithmetic `quantity * price/quantity = trade value`.
   }
 }
 ```
+
+Spend quite a bit of time trying to figure out why Coin Market Cap's API did
+not want to work due to CORS. After a while retired their API, as it became
+clear that the API allows server to server communication, but not server to
+browser communication and therefore switching to Coin Gecko.
+
+**Coin Gecko**
+
+Have a very simple an intuitive API and docs using the OpenAPI doc spec
+simplifies the process, [Coin Gecko Docs](https://www.coingecko.com/en/api/documentation).
+
+With the one of the first endpoints being the one required, `GET /simple/price`.
+
+A quick test in the browser using `fetch` confirmed that this endpoint would
+work.
+
