@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import { alchemy } from '../services/alchemy.service'
 import type { BlockWithTransactions } from 'alchemy-sdk'
+import BlockDetail from './BlockDetail'
 
 type BlockViewProps = {
 	blockNumber?: number;
@@ -39,6 +40,7 @@ const BlockView: FC<BlockViewProps> = ({ blockNumber }) => {
 
 	return (
 		<div className="block-view">
+			<BlockDetail block={block} />
 		</div>
 	)
 }
