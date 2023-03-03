@@ -6,10 +6,20 @@ type TransactionRowProps = {
 	transaction: TransactionResponse
 	currency: number
 }
+
+/**
+ * TransactionRow displays the basic information of a transaction from the
+ * ethereum block.
+ * Basic info to display is the from address, to address, value in ETH and
+ * then to convert the ETH to USD to display the value of the transaction
+ * in USD.
+ *
+ * @param transaction the transaction.
+ * @param currency the conversion rate of 1 ETH to USD.
+ */
 const TransactionRow: FC<TransactionRowProps> = ({ transaction, currency }) => {
 	const eth = parseFloat(Utils.formatEther(transaction.value))
 	const ethereumUSD = eth * currency
-	// 00000000002525
 	return (
 		<tr className="transaction-row">
 			<td className="text-left font-mono px-1">{ transaction.from }</td>
