@@ -8,6 +8,10 @@ black text.
 
 See [eth.dottics.com](http://eth.dottics.com).
 
+## Notes and Questions
+
+See [NOTES.md](./NOTES.md)
+
 ## Get set up
 
 **Development**
