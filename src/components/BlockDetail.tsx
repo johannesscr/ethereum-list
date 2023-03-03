@@ -5,6 +5,11 @@ type BlockDetailProps = {
 	block: BlockWithTransactions
 }
 
+/**
+ * BlockDetail shows the mined block's details.
+ *
+ * @param block the ethereum block.
+ */
 const BlockDetail: FC<BlockDetailProps> = ({ block }) => {
 	return (
 		<div className="block-detail">
