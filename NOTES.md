@@ -4,19 +4,86 @@ This file is to answer the prompt/writeup questions as well as to document other
 
 ## Questions
 
-**How does your solution work**
+### How does your solution work
+**Overview**
+The App has a websocket connection to Alchemy where it watches for any new mined
+ethereum block. Once it has the latest block number, it then fetches the block
+data with its transactions with full transaction data. Whenever it gets a new
+block it also fetches the current Ethereum price from Coin Gecko and based on
+the available data is able to convert the WEI to ETH and ETH to USD.
 
-**How many hours did this take you**
+Finally, the App displays the block number with a list of all the transactions
+with their from address, to address, value in ETH and value in USD.
 
-**What went well, what went poorly**
-**Poorly**
+If the USD value is significant `USD > 0.01` the transaction is displayed in
+black text, otherwise the transaction is displayed in gray.
+
+### How many hours did this take you
+The initial process of looking through the API documentation and discovering
+the available endpoints, SDK methods and API that allow CORS took the most
+time roughly 2.5 hours.
+
+Setting up the basic app roughly 0.5 hours.
+
+Building and testing the actual web app took 1.5 hours once I was able to piece
+together all the SDK and Coin Gecko endpoints. Testing was very straight
+forward with vitest and testing-library/react.
+
+Finally neatening up and writing this another 1 hour (deploying on my little
+server probably like 15min).
+
+And therefore in total: 5.5 hours. More, than I expected, but discovering
+and understanding the API docs definitely wasted the most time.
+
+### What went well, what went poorly
+**Well**
+- Once the API endpoints were working as expected, being able to make requests 
+  from the browser, all else went very smoothly.
+- Working with React, Vite, Vitest and Tailwind helps the dev process, those
+  tools and documentation are clear and concise.
+
+**Poor**
 - Coming to grips with the Alchemy API and understanding the documentation to
   put together the puzzle of getting a block, then it's transactions.
+- The Coin Market Cap's API does not allow CORS, which waste quite a bit
+  of time as it is not clear from their documentation.
 
-**What did you have trouble with/how did you solve it**
+### What did you have trouble with/how did you solve it
+No problem with React, Vite, Vitest or Tailwind. The only problem or difficulty
+was going about the API Documentation for both Alchemy and Coin Market Cap.
 
-**What would you add to your solution if you had more time**
+**Alchemy**
+I have not interfaced with any cryptocurrency before or any blockchain. So
+understanding how the Alchemy SDK works, how the blocks work and how to get
+the data. This just took some time to read through enough of the documentation
+to find the correct methods. As for all the data being hex values this was
+unexpected, but once noticed it was clear how it worked.
 
+**Coin Market Cap**
+I tried to use their API's first, as I have their App on my phone. However,
+their documentation did not make it clear that they do not allow CORS.
+
+Initially, I thought I did something wrong, with the JavaScript `fetch` API.
+But then looking closely at their documentation and noticing that all their
+examples were in `Go`, `Node.js`, `Python`, etc. I realised they were
+talking about server to server communication. I gave decided to just give
+Coin Gecko a try.
+
+**Coin Gecko**
+Their documentation was very clear and concise, using the OpenAPI convention
+made it easy to find the `GET /simple/price` endpoint and within 5min I had
+the request working in the App.
+
+### What would you add to your solution if you had more time
+Add classic search functionality:
+- Being able to search for a block by block number or hash.
+- Basic filtering on the table to give the user some ability to explore the
+  data.
+- Allow the user to pause on a block (currently it reload whenever a new
+  block is mined).
+- Show statistics over time. Building a distribution of transaction sizes.
+  - There is some fun to be had. I noticed there are patterns of multiple
+    transaction to/from the same account with the same value.
 
 ## The Process
 
