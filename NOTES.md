@@ -140,6 +140,7 @@ values in multiple fiat and cryptocurrency conversions in the same call."
 
 ```bash
 curl -H "X-CMC_PRO_API_KEY: $COINMARKETAPI" -H "Accept: application/json" -G https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=1027
+curl -H "X-CMC_PRO_API_KEY: $COINMARKETAPI" -H "Accept: application/json" -i https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=1027
 ```
 
 With a response structure, from which we can get the price of a single ETH in

@@ -9,12 +9,15 @@ const settings = {
 
 const alchemy = new Alchemy(settings)
 
-async function main() {
-	const latestBlock = await alchemy.core.getBlockNumber();
-	console.log(`The latest block number is ${latestBlock}`)
+export {
+	alchemy
 }
 
-alchemy.core.getBlockWithTransactions(15221026).then(console.log);
+// async function main() {
+// 	const latestBlock = await alchemy.core.getBlockNumber();
+// 	console.log(`The latest block number is ${latestBlock}`)
+// }
+
 
 // main()
 // // Subscription for new blocks on Eth Mainnet.
