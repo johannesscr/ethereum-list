@@ -13,7 +13,7 @@ type BlockDetailProps = {
 const BlockDetail: FC<BlockDetailProps> = ({ block }) => {
 	return (
 		<div className="block-detail">
-			<h3>Block #{block.number}</h3>
+			<h3 className="text-left text-4xl pb-2">Block #{block.number}</h3>
 		</div>
 	)
 }
