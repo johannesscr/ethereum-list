@@ -19,13 +19,13 @@ type TransactionRowProps = {
  */
 const TransactionRow: FC<TransactionRowProps> = ({ transaction, currency }) => {
 	const eth = parseFloat(Utils.formatEther(transaction.value))
-	const ethereumUSD = eth * currency
+	const usd = eth * currency
 	return (
-		<tr className="transaction-row">
+		<tr className={`transaction-row ${usd > 0.001 ? undefined : 'text-slate-400'}`}>
 			<td className="text-left font-mono px-1">{ transaction.from }</td>
 			<td className="text-left font-mono px-1">{ transaction.to }</td>
 			<td className="text-right font-mono px-1">{ eth.toFixed(12) } ETH</td>
-			<td className="text-right font-mono px-1">$ { ethereumUSD.toFixed(3) }</td>
+			<td className="text-right font-mono px-1">$ {usd.toFixed(3) }</td>
 		</tr>
 	)
 }

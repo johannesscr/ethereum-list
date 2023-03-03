@@ -35,14 +35,14 @@ const TransactionList: FC<TransactionListProps> = ({ transactions }) => {
 
 	return (
 		<div className="transaction-list">
-			<p>transactions</p>
+			<p className="uppercase font-bold text-left text-2xl">transactions</p>
 			<table>
 				<thead>
-				<tr>
-					<th>from</th>
-					<th>to</th>
-					<th>eth</th>
-					<th>usd</th>
+				<tr className="text-left">
+					<th className="capitalize">from</th>
+					<th className="capitalize">to</th>
+					<th className="uppercase">eth</th>
+					<th className="uppercase">usd</th>
 				</tr>
 				</thead>
 				<tbody>
