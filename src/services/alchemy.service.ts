@@ -1,4 +1,4 @@
-import { Alchemy, Network, Utils } from 'alchemy-sdk'
+import { Alchemy, Network } from 'alchemy-sdk'
 
 const settings = {
 	apiKey: import.meta.env.VITE_ALCHEMY,
