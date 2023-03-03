@@ -85,6 +85,10 @@ Add classic search functionality:
   - There is some fun to be had. I noticed there are patterns of multiple
     transaction to/from the same account with the same value.
 
+Development:
+- Add better error handling.
+- Add a better loading experince when the page is first loaded or refreshed.
+
 ## The Process
 
 ### Understanding the Transaction Object on Ethereum
